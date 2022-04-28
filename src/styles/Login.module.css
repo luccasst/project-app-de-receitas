@@ -1,0 +1,16 @@
+/* body {
+  background: white;
+  height: 640px;
+  position: relative;
+  width: 360px;
+} */
+
+.Login {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  margin: 10px;
+}

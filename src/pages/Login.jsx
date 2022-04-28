@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import setStorage from '../helpers/storage';
+import style from '../styles/Login.module.css';
 
 export default function Login() {
   const history = useHistory();
@@ -24,13 +25,7 @@ export default function Login() {
   };
 
   return (
-    <div
-      style={ {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-      } }
-    >
+    <div className={ style.Login }>
       <h1>Login</h1>
       <input
         data-testid="email-input"
@@ -57,10 +52,6 @@ export default function Login() {
         onClick={ () => {
           setStorage(user.email);
           history.push('/foods');
-        } }
-        style={ {
-          margin: '10px',
-          width: '339px',
         } }
       >
         Enter
