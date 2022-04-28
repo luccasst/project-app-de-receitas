@@ -1,8 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import setStorage from '../helpers/storage';
 
-export default function Login(props) {
+export default function Login() {
+  const history = useHistory();
   const [user, setUser] = React.useState({
     email: '',
     senha: '',
@@ -55,7 +56,6 @@ export default function Login(props) {
         disabled={ isDisabled }
         onClick={ () => {
           setStorage(user.email);
-          const { history } = props;
           history.push('/foods');
         } }
         style={ {
@@ -68,7 +68,3 @@ export default function Login(props) {
     </div>
   );
 }
-
-Login.propTypes = {
-  history: PropTypes.shape(PropTypes.any).isRequired,
-};
