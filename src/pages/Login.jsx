@@ -1,7 +1,7 @@
 import React from 'react';
 import setStorage from '../helpers/storage';
 
-export default function Login() {
+export default function Login(props) {
   const [user, setUser] = React.useState({
     email: '',
     senha: '',
@@ -52,7 +52,13 @@ export default function Login() {
         data-testid="login-submit-btn"
         type="button"
         disabled={ isDisabled }
-        onClick={ () => setStorage(user.email) }
+        onClick={ () => {
+          setStorage(user.email);
+          // eslint-disable-next-line react/prop-types
+          const { history } = props;
+          // eslint-disable-next-line react/prop-types
+          history.push('/foods');
+        } }
         style={ {
           margin: '10px',
           width: '339px',
