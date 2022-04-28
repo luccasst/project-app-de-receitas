@@ -1,4 +1,5 @@
 import React from 'react';
+import setStorage from '../helpers/storage';
 
 export default function Login() {
   const [user, setUser] = React.useState({
@@ -51,6 +52,7 @@ export default function Login() {
         data-testid="login-submit-btn"
         type="button"
         disabled={ isDisabled }
+        onClick={ () => setStorage() }
         style={ {
           margin: '10px',
           width: '339px',
