@@ -52,7 +52,7 @@ export default function Login() {
         data-testid="login-submit-btn"
         type="button"
         disabled={ isDisabled }
-        onClick={ () => setStorage() }
+        onClick={ () => setStorage(user.email) }
         style={ {
           margin: '10px',
           width: '339px',
