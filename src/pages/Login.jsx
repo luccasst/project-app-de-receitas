@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import setStorage from '../helpers/storage';
 
 export default function Login(props) {
@@ -54,9 +55,7 @@ export default function Login(props) {
         disabled={ isDisabled }
         onClick={ () => {
           setStorage(user.email);
-          // eslint-disable-next-line react/prop-types
           const { history } = props;
-          // eslint-disable-next-line react/prop-types
           history.push('/foods');
         } }
         style={ {
@@ -69,3 +68,7 @@ export default function Login(props) {
     </div>
   );
 }
+
+Login.propTypes = {
+  history: PropTypes.shape(PropTypes.any).isRequired,
+};
