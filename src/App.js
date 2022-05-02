@@ -12,7 +12,8 @@ import DetailDrink from './pages/DetailDrink';
 import Explore from './pages/Explore';
 import ExploreFoods from './pages/ExploreFoods';
 import ExploreDrinks from './pages/ExploreDrinks';
-import ExploreIngredients from './pages/ExploreIngredients';
+import ExploreFoodIngredients from './pages/ExploreFoodIngredients';
+import ExploreDrinkIngredients from './pages/ExploreDrinkIngredients';
 import ExploreNationalities from './pages/ExploreNationalities';
 import Profile from './pages/Profile';
 import DoneRecipes from './pages/DoneRecipes';
@@ -35,9 +36,9 @@ function App() {
         <Route path="/drinks/:id/in-progress" component={ RecipeDrinksInProcess } />
         <Route exact path="/explore/" component={ Explore } />
         <Route exact path="/explore/foods/" component={ ExploreFoods } />
-        <Route path="/explore/foods/ingredients" component={ ExploreIngredients } />
+        <Route path="/explore/foods/ingredients" component={ ExploreFoodIngredients } />
         <Route exact path="/explore/drinks/" component={ ExploreDrinks } />
-        <Route path="/explore/drinks/ingredients" component={ ExploreIngredients } />
+        <Route path="/explore/drinks/ingredients" component={ ExploreDrinkIngredients } />
         <Route path="/explore/foods/nationalities" component={ ExploreNationalities } />
       </Switch>
     </BrowserRouter>
