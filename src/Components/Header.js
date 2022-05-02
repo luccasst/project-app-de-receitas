@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import profileIcon from '../images/profileIcon.svg';
 import '../styles/header.css';
+import SearchBar from './SearchBar';
 import searchIcon from '../images/searchIcon.svg';
 
 function Header({ title, search }) {
@@ -45,9 +46,7 @@ function Header({ title, search }) {
       </section>
       {
         show && (
-          <div>
-            <input type="text" data-testid="search-input" />
-          </div>
+          <SearchBar />
         )
       }
     </header>
