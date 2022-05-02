@@ -1,0 +1,19 @@
+header {
+  align-items: center;
+  background-color: #aaa;
+  padding: 15px;
+}
+
+header section {
+  display: flex;
+  justify-content: space-between;
+}
+
+header input {
+  width: 100%;
+}
+
+header button {
+  background-color: transparent;
+  border: none;
+}
