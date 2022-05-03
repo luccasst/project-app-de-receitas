@@ -5,7 +5,7 @@ import Footer from '../Components/Footer';
 function ExploreFoodIngredients() {
   return (
     <main>
-      <Header title="Explore Food Ingredients" search={ false } />
+      <Header title="Explore Ingredients" search={ false } />
       <Footer />
     </main>
   );
