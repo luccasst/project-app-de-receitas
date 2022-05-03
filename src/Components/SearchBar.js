@@ -19,7 +19,9 @@ function SearchBar() {
     const { inputValue, type } = filters;
     if (inputValue.length > 1 && type === 'letter') {
       global.alert('Your search must have only 1 (one) character');
-    } else { setGlobalFilters(filters); }
+    } else {
+      setGlobalFilters(filters);
+    }
   };
 
   return (

@@ -6,7 +6,6 @@ import SearchContext from '../Context/SearchContext';
 import Cards from '../Components/Cards';
 import Footer from '../Components/Footer';
 
-
 function Food() {
   const numberFood = 12;
   const [foods, setFoods] = useState([]);
