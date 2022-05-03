@@ -4,6 +4,8 @@ import Header from '../Components/Header';
 import filterFoods from '../helpers/fetchApiFood';
 import SearchContext from '../Context/SearchContext';
 import Cards from '../Components/Cards';
+import Footer from '../Components/Footer';
+
 
 function Food() {
   const numberFood = 12;
@@ -34,6 +36,7 @@ function Food() {
           imgSrc={ food.strMealThumb }
           name={ food.strMeal }
         />)).slice(0, numberFood) }
+      <Footer />
     </main>
   );
 }

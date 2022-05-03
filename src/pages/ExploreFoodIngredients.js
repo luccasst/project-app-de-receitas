@@ -1,12 +1,14 @@
 import React from 'react';
 import Header from '../Components/Header';
+import Footer from '../Components/Footer';
 
-function ExploreIngredients() {
+function ExploreFoodIngredients() {
   return (
     <main>
       <Header title="Explore Ingredients" search={ false } />
+      <Footer />
     </main>
   );
 }
 
-export default ExploreIngredients;
+export default ExploreFoodIngredients;

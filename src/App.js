@@ -12,7 +12,8 @@ import DetailDrink from './pages/DetailDrink';
 import Explore from './pages/Explore';
 import ExploreFoods from './pages/ExploreFoods';
 import ExploreDrinks from './pages/ExploreDrinks';
-import ExploreIngredients from './pages/ExploreIngredients';
+import ExploreFoodIngredients from './pages/ExploreFoodIngredients';
+import ExploreDrinkIngredients from './pages/ExploreDrinkIngredients';
 import ExploreNationalities from './pages/ExploreNationalities';
 import Profile from './pages/Profile';
 import DoneRecipes from './pages/DoneRecipes';
@@ -21,28 +22,26 @@ import SearchProvider from './Context/SearchProvider';
 
 function App() {
   return (
-    <SearchProvider>
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/" component={ Login } />
-          <Route exact path="/foods/" component={ Foods } />
-          <Route exact path="/drinks/" component={ Drinks } />
-          <Route path="/profile" component={ Profile } />
-          <Route path="/done-recipes" component={ DoneRecipes } />
-          <Route path="/favorite-recipes" component={ FavoriteRecipe } />
-          <Route path="/foods/:id/in-progress" component={ RecipeFoodInProcess } />
-          <Route path="/foods/:id/" component={ DetailFood } />
-          <Route path="/drinks/:id/in-progress" component={ RecipeDrinksInProcess } />
-          <Route path="/drinks/:id/" component={ DetailDrink } />
-          <Route exact path="/explore/" component={ Explore } />
-          <Route path="/explore/foods/ingredients" component={ ExploreIngredients } />
-          <Route path="/explore/foods/nationalities" component={ ExploreNationalities } />
-          <Route path="/explore/foods/" component={ ExploreFoods } />
-          <Route path="/explore/drinks/ingredients" component={ ExploreIngredients } />
-          <Route path="/explore/drinks/" component={ ExploreDrinks } />
-        </Switch>
-      </BrowserRouter>
-    </SearchProvider>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={ Login } />
+        <Route exact path="/foods/" component={ Foods } />
+        <Route exact path="/drinks/" component={ Drinks } />
+        <Route exact path="/profile" component={ Profile } />
+        <Route path="/done-recipes" component={ DoneRecipes } />
+        <Route path="/favorite-recipes" component={ FavoriteRecipe } />
+        <Route exact path="/foods/:id/" component={ DetailFood } />
+        <Route path="/foods/:id/in-progress" component={ RecipeFoodInProcess } />
+        <Route exact path="/drinks/:id/" component={ DetailDrink } />
+        <Route path="/drinks/:id/in-progress" component={ RecipeDrinksInProcess } />
+        <Route exact path="/explore/" component={ Explore } />
+        <Route exact path="/explore/foods/" component={ ExploreFoods } />
+        <Route path="/explore/foods/ingredients" component={ ExploreFoodIngredients } />
+        <Route exact path="/explore/drinks/" component={ ExploreDrinks } />
+        <Route path="/explore/drinks/ingredients" component={ ExploreDrinkIngredients } />
+        <Route path="/explore/foods/nationalities" component={ ExploreNationalities } />
+      </Switch>
+    </BrowserRouter>
   );
 }
 export default App;

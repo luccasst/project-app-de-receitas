@@ -4,6 +4,7 @@ import Header from '../Components/Header';
 import filterDrinks from '../helpers/fetchApiDrinks';
 import SearchContext from '../Context/SearchContext';
 import Cards from '../Components/Cards';
+import Footer from '../Components/Footer';
 
 function Drinks() {
   const numberDrink = 12;
@@ -26,6 +27,7 @@ function Drinks() {
   return (
     <main>
       <Header title="Drinks" search />
+
       {drinks.length > 0 && drinks
         .map((drink, index) => (<Cards
           key={ drink.idDrink }
@@ -33,6 +35,7 @@ function Drinks() {
           imgSrc={ drink.strDrinkThumb }
           name={ drink.strDrink }
         />)).slice(0, numberDrink) }
+      <Footer />
     </main>
   );
 }
