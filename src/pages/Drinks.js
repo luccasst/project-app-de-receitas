@@ -10,6 +10,7 @@ function Drinks() {
   const [drinks, setDrinks] = useState([]);
   const { globalFilters } = useContext(SearchContext);
   const history = useHistory();
+
   useEffect(() => {
     filterDrinks(globalFilters.inputValue, globalFilters.type).then((response) => {
       if (!response) {
@@ -21,6 +22,7 @@ function Drinks() {
       }
     });
   }, [globalFilters, history]);
+
   return (
     <main>
       <Header title="Drinks" search />
