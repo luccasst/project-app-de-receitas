@@ -11,14 +11,14 @@ function Drinks() {
   const { globalFilters } = useContext(SearchContext);
   const history = useHistory();
   useEffect(() => {
-    console.log(globalFilters);
     filterDrinks(globalFilters.inputValue, globalFilters.type).then((response) => {
-      console.log(response);
-      if (response.length === 1) {
+      if (!response) {
+        global.alert('Sorry, we haven\'t found any recipes for these filters.');
+      } else if (response.length === 1) {
         history.push(`/drinks/${response[0].idDrink}`);
-      } else if (response.length > 1) {
-        setDrinks(response); 
-      } else { global.alert("`Sorry, we haven't found any recipes for these filters.") }
+      } else {
+        setDrinks(response);
+      }
     });
   }, [globalFilters, history]);
   return (

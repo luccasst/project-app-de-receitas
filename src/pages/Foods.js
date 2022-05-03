@@ -14,9 +14,13 @@ function Food() {
     console.log(globalFilters);
     filterFoods(globalFilters.inputValue, globalFilters.type).then((response) => {
       console.log(response);
-      if (response.length === 1) {
+      if (!response) {
+        global.alert('Sorry, we haven\'t found any recipes for these filters.');
+      } else if (response.length === 1) {
         history.push(`/foods/${response[0].idMeal}`);
-      } else { setFoods(response); }
+      } else {
+        setFoods(response);
+      }
     });
   }, [globalFilters, history]);
 
