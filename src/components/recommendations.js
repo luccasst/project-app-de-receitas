@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../styles/carousel.css';
 
 export default function Recommendations({ recomendations }) {
   return (
-    <div>
+    <div className="carousel">
       { recomendations.map(({ strDrinkThumb, strDrink }, index) => (
         <>
           <img
+            className="img"
             data-testid={ `${index}-recomendation-card` }
             key={ index }
             src={ strDrinkThumb }
