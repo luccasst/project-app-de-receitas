@@ -4,7 +4,7 @@ import shareIcon from '../images/shareIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 import fetchFoodRecipes from '../helpers/fetchFoodRecipes';
 import filterDrinks from '../helpers/fetchApiDrinks';
-import Recommendations from '../components/recommendations';
+import Recommendations from '../components/RecommendationDrink';
 
 function DetailFood() {
   const NUMBER = 6;
@@ -12,7 +12,7 @@ function DetailFood() {
   const [recipeFood, setRecipe] = React.useState({});
   const [ingredients, setIngredients] = React.useState([]);
   const [measures, setMeasures] = React.useState([]);
-  const [recomendations, setRecomendaions] = React.useState([]);
+  const [recomendations, setRecomendations] = React.useState([]);
 
   React.useEffect(() => {
     fetchFoodRecipes(params.id).then((response) => {
@@ -27,7 +27,7 @@ function DetailFood() {
       setRecipe({ ...response[0] });
     });
     filterDrinks('', '').then((response) => {
-      setRecomendaions(response);
+      setRecomendations(response);
     });
   }, [params]);
   return (
@@ -35,8 +35,8 @@ function DetailFood() {
       Detail Food
       <img
         data-testid="recipe-photo"
-        src={ recipeFood.strMealThumb }
         alt="recipe"
+        src={ recipeFood.strMealThumb }
       />
       <h1 data-testid="recipe-title">{recipeFood.strMeal}</h1>
       <button
@@ -76,12 +76,16 @@ function DetailFood() {
           && recipeFood.strYoutube.replace('watch?v=', 'embed/') }
         type="video/mp4"
       />
-      <Recommendations recomendations={ recomendations.slice(0, NUMBER) } />
+      <Recommendations
+        title="Meals"
+        recomendations={ recomendations.slice(0, NUMBER) }
+      />
       <button
+        style={ { bottom: '0px', position: 'fixed' } }
         type="button"
         data-testid="start-recipe-btn"
       >
-        iniciar
+        Start Recipe
       </button>
     </section>
   );

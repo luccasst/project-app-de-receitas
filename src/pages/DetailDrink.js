@@ -4,15 +4,17 @@ import shareIcon from '../images/shareIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 import fetchDrinkRecipes from '../helpers/fetchDrinksRecipes';
 import filterFoods from '../helpers/fetchApiFood';
+import Recommendations from '../components/RecommendationFood';
 
 function DetailDrink() {
+  const NUMBER = 6;
   const params = useParams();
   const [recipeDrink, setRecipe] = React.useState({});
   const [ingredients, setIngredients] = React.useState([]);
   const [measures, setMeasures] = React.useState([]);
+  const [recomendations, setRecomendations] = React.useState([]);
 
   React.useEffect(() => {
-    console.log(params);
     fetchDrinkRecipes(params.id).then((response) => {
       setIngredients(Object
         .entries(response[0])
@@ -24,8 +26,11 @@ function DetailDrink() {
         .map((measure) => measure[1]));
       setRecipe({ ...response[0] });
     });
-    filterFoods('', '').then((response) => console.log(response));
+    filterFoods('', '').then((response) => {
+      setRecomendations(response);
+    });
   }, [params]);
+
   return (
     <section>
       Detail Drink
@@ -66,11 +71,16 @@ function DetailDrink() {
       <div data-testid="0-recomendation-card">
         recomendadas
       </div>
+      <Recommendations
+        title="Drinks"
+        recomendations={ recomendations.slice(0, NUMBER) }
+      />
       <button
+        style={ { bottom: '0px', position: 'fixed' } }
         type="button"
         data-testid="start-recipe-btn"
       >
-        iniciar
+        Start Recipe
       </button>
     </section>
   );
